@@ -1,0 +1,27 @@
+---
+import AppLayout from "../layouts/AppLayout.astro";
+import { AuthCard } from "../components/auth/AuthCard";
+
+const title = "Daftar Akun — SMASH ARENA";
+const description = "Buat akun Smash Arena dan booking lapangan badminton favoritmu lebih cepat.";
+---
+
+<AppLayout title={title} description={description}>
+  <section class="section-pad relative" aria-labelledby="register-page-title">
+    <div class="container-x">
+      <div class="mx-auto max-w-md text-center">
+        <span class="eyebrow">Member Baru</span>
+        <h1
+          id="register-page-title"
+          class="mt-5 font-display text-[clamp(2.1rem,5.5vw,3.4rem)] font-extrabold uppercase leading-[1.02] tracking-tight text-white"
+        >
+          Gabung <span class="text-primary">Smash</span>
+        </h1>
+      </div>
+
+      <div class="mt-9">
+        <AuthCard mode="register" client:only="react" />
+      </div>
+    </div>
+  </section>
+</AppLayout>

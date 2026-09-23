@@ -1,0 +1,56 @@
+---
+import { Coffee, Lightbulb, Lock, ShowerHead, Snowflake, SquareParking, Trophy, Wifi } from "@lucide/astro";
+import { facilities } from "../data/facilities";
+import SectionHeading from "./SectionHeading.astro";
+
+const iconMap = {
+  court: Trophy,
+  light: Lightbulb,
+  shower: ShowerHead,
+  parking: SquareParking,
+  refreshment: Coffee,
+  locker: Lock,
+  ac: Snowflake,
+  wifi: Wifi,
+} as const;
+---
+
+<section
+  id="facilities"
+  class="section-pad relative border-y border-white/5 bg-white/[0.02]"
+  aria-labelledby="facilities-title"
+>
+  <div class="container-x">
+    <SectionHeading
+      id="facilities-title"
+      eyebrow="Fasilitas"
+      title="Everything You Need to Play"
+      description="Semua yang kamu butuhkan untuk bermain nyaman — dari lapangan premium sampai kopi penghangat setelah pertandingan."
+      align="center"
+    />
+
+    <ul class="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        facilities.map((facility, index) => {
+          const Icon = iconMap[facility.icon as keyof typeof iconMap] ?? Trophy;
+          return (
+            <li
+              class:list={[
+                "reveal group rounded-3xl border border-white/8 bg-card/70 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-card",
+                `reveal-delay-${(index % 4) + 1}`,
+              ]}
+            >
+              <span class="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25 transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_12px_28px_-12px_rgba(163,230,53,0.9)]">
+                <Icon class="size-6" aria-hidden="true" />
+              </span>
+              <h3 class="mt-5 font-display text-base font-bold text-white">{facility.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {facility.description}
+              </p>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>

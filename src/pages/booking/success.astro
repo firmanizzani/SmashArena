@@ -1,0 +1,16 @@
+---
+import AppLayout from "../../layouts/AppLayout.astro";
+import { SuccessPage } from "../../components/booking/SuccessPage";
+
+const title = "Booking Berhasil — SMASH ARENA";
+const description = "Booking Smash Arena kamu berhasil dikonfirmasi.";
+---
+
+<AppLayout title={title} description={description}>
+  <section class="section-pad relative" aria-labelledby="success-page-title">
+    <div class="container-x">
+      <h1 id="success-page-title" class="sr-only">Booking Berhasil</h1>
+      <SuccessPage client:only="react" />
+    </div>
+  </section>
+</AppLayout>

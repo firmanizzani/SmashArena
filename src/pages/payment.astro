@@ -1,0 +1,28 @@
+---
+import AppLayout from "../layouts/AppLayout.astro";
+import { PaymentPage } from "../components/booking/PaymentPage";
+
+const title = "Pembayaran — SMASH ARENA";
+const description = "Selesaikan pembayaran booking lapangan Smash Arena.";
+---
+
+<AppLayout title={title} description={description}>
+  <section class="section-pad relative" aria-labelledby="payment-page-title">
+    <div class="container-x">
+      <span class="eyebrow">Pembayaran</span>
+      <h1
+        id="payment-page-title"
+        class="mt-5 font-display text-[clamp(2.1rem,5.5vw,3.6rem)] font-extrabold uppercase leading-[1.02] tracking-tight text-white"
+      >
+        Pay & <span class="text-primary">Play</span>
+      </h1>
+      <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+        Pilih metode pembayaran untuk mengunci jadwal bermainmu.
+      </p>
+
+      <div class="mt-10">
+        <PaymentPage client:only="react" />
+      </div>
+    </div>
+  </section>
+</AppLayout>

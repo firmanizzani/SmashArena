@@ -1,0 +1,28 @@
+---
+import AppLayout from "../layouts/AppLayout.astro";
+import { CheckoutPage } from "../components/booking/CheckoutPage";
+
+const title = "Checkout — SMASH ARENA";
+const description = "Lengkapi data pemesan dan review booking Smash Arena sebelum pembayaran.";
+---
+
+<AppLayout title={title} description={description}>
+  <section class="section-pad relative" aria-labelledby="checkout-page-title">
+    <div class="container-x">
+      <span class="eyebrow">Checkout</span>
+      <h1
+        id="checkout-page-title"
+        class="mt-5 font-display text-[clamp(2.1rem,5.5vw,3.6rem)] font-extrabold uppercase leading-[1.02] tracking-tight text-white"
+      >
+        Data <span class="text-primary">Pemesan</span>
+      </h1>
+      <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+        Pastikan jadwal dan kontak sudah benar sebelum lanjut ke pembayaran.
+      </p>
+
+      <div class="mt-10">
+        <CheckoutPage client:only="react" />
+      </div>
+    </div>
+  </section>
+</AppLayout>

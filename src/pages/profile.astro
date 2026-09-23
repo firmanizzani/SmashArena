@@ -1,0 +1,16 @@
+---
+import AppLayout from "../layouts/AppLayout.astro";
+import { ProfileRoute } from "../components/account/ProfileRoute";
+
+const title = "Profil — SMASH ARENA";
+const description = "Kelola data diri dan preferensi kontak akun Smash Arena kamu.";
+---
+
+<AppLayout title={title} description={description}>
+  <section class="section-pad relative" aria-labelledby="profile-page-title">
+    <div class="container-x">
+      <h1 id="profile-page-title" class="sr-only">Profil Saya</h1>
+      <ProfileRoute client:only="react" />
+    </div>
+  </section>
+</AppLayout>

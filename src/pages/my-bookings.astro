@@ -1,0 +1,16 @@
+---
+import AppLayout from "../layouts/AppLayout.astro";
+import { MyBookingsRoute } from "../components/account/MyBookingsRoute";
+
+const title = "Booking Saya — SMASH ARENA";
+const description = "Lihat dan kelola jadwal booking lapangan badminton Smash Arena kamu.";
+---
+
+<AppLayout title={title} description={description}>
+  <section class="section-pad relative" aria-labelledby="my-bookings-page-title">
+    <div class="container-x">
+      <h1 id="my-bookings-page-title" class="sr-only">Booking Saya</h1>
+      <MyBookingsRoute client:only="react" />
+    </div>
+  </section>
+</AppLayout>

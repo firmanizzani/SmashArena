@@ -1,0 +1,8 @@
+---
+import AdminLayout from "../../layouts/AdminLayout.astro";
+import { AdminPaymentsRoute } from "../../components/admin/AdminRoutes";
+---
+
+<AdminLayout title="Payments — Admin SMASH ARENA">
+  <AdminPaymentsRoute client:only="react" />
+</AdminLayout>

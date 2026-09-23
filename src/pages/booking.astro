@@ -1,0 +1,29 @@
+---
+import AppLayout from "../layouts/AppLayout.astro";
+import { BookingFlow } from "../components/booking/BookingFlow";
+
+const title = "Booking Lapangan — SMASH ARENA";
+const description =
+  "Pilih tanggal, durasi, lapangan, dan jam bermain badminton favoritmu di Smash Arena.";
+---
+
+<AppLayout title={title} description={description}>
+  <section class="section-pad relative" aria-labelledby="booking-page-title">
+    <div class="container-x">
+      <span class="eyebrow">Reservasi Online</span>
+      <h1
+        id="booking-page-title"
+        class="mt-5 font-display text-[clamp(2.1rem,5.5vw,3.6rem)] font-extrabold uppercase leading-[1.02] tracking-tight text-white"
+      >
+        Book Your <span class="text-primary">Court</span>
+      </h1>
+      <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+        Semua pilihanmu tersimpan otomatis — amankan jadwal dalam tiga langkah singkat.
+      </p>
+
+      <div class="mt-10">
+        <BookingFlow client:only="react" />
+      </div>
+    </div>
+  </section>
+</AppLayout>

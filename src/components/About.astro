@@ -1,0 +1,94 @@
+---
+import {
+  Grid3x3,
+  Layers,
+  Lightbulb,
+  Lock,
+  Sofa,
+  Sparkles,
+  SquareParking,
+} from "@lucide/astro";
+import { aboutFeatures } from "../data/facilities";
+import SectionHeading from "./SectionHeading.astro";
+
+const iconMap = {
+  layers: Layers,
+  light: Lightbulb,
+  net: Grid3x3,
+  sofa: Sofa,
+  locker: Lock,
+  parking: SquareParking,
+} as const;
+
+const aboutImage =
+  "https://images.pexels.com/photos/31790664/pexels-photo-31790664.jpeg?auto=compress&cs=tinysrgb&w=1200";
+---
+
+<section id="about" class="section-pad relative overflow-hidden" aria-labelledby="about-title">
+  <div class="container-x">
+    <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div class="reveal relative" data-reveal="left">
+        <div class="overflow-hidden rounded-[2rem] border border-white/10 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)]">
+          <img
+            src={aboutImage}
+            alt="Tampak atas lapangan badminton indoor Smash Arena dengan dua pemain di atas court biru"
+            width="1200"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105 lg:aspect-[4/4.4]"
+          />
+        </div>
+
+        <div
+          class="glass absolute -bottom-6 -right-2 flex items-center gap-3 rounded-2xl px-4 py-3 shadow-2xl sm:-right-6 sm:px-5 sm:py-4"
+        >
+          <span class="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+            <Sparkles class="size-5" aria-hidden="true" />
+          </span>
+          <div>
+            <p class="font-display text-sm font-extrabold uppercase tracking-wider text-white">
+              Sejak 2019
+            </p>
+            <p class="text-xs text-muted-foreground">Melayani 10.000+ pemain</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal="right" class="reveal">
+        <SectionHeading
+          id="about-title"
+          eyebrow="Kenapa Smash Arena"
+          title="More Than Just a Court"
+          description="Kami menyediakan pengalaman bermain badminton yang benar-benar nyaman — dari lantai berstandar turnamen, pencahayaan premium, sampai area tunggu yang bikin betah berlama-lama."
+        />
+
+        <ul class="mt-9 grid gap-4 sm:grid-cols-2">
+          {
+            aboutFeatures.map((feature, index) => {
+              const Icon = iconMap[feature.icon as keyof typeof iconMap] ?? Sparkles;
+              return (
+                <li
+                  class:list={[
+                    "reveal group flex gap-3.5 rounded-2xl border border-white/8 bg-white/[0.03] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/35 hover:bg-primary/[0.06]",
+                    `reveal-delay-${Math.min(index + 1, 4)}`,
+                  ]}
+                >
+                  <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/25 transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <Icon class="size-5" aria-hidden="true" />
+                  </span>
+                  <span>
+                    <span class="block text-sm font-bold text-white">{feature.title}</span>
+                    <span class="mt-1 block text-xs leading-relaxed text-muted-foreground">
+                      {feature.description}
+                    </span>
+                  </span>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

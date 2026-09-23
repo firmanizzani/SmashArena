@@ -1,0 +1,8 @@
+---
+import AdminLayout from "../../layouts/AdminLayout.astro";
+import { AdminBookingsRoute } from "../../components/admin/AdminRoutes";
+---
+
+<AdminLayout title="Bookings — Admin SMASH ARENA">
+  <AdminBookingsRoute client:only="react" />
+</AdminLayout>

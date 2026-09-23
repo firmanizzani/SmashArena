@@ -1,0 +1,32 @@
+---
+import About from "../components/About.astro";
+import Booking from "../components/Booking.astro";
+import CTA from "../components/CTA.astro";
+import Courts from "../components/Courts.astro";
+import Facilities from "../components/Facilities.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import Location from "../components/Location.astro";
+import Navbar from "../components/Navbar.astro";
+import Pricing from "../components/Pricing.astro";
+import Stats from "../components/Stats.astro";
+import Testimonials from "../components/Testimonials.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <Navbar />
+  <main id="main">
+    <Hero />
+    <Stats />
+    <About />
+    <Courts />
+    <Pricing />
+    <Booking />
+    <Facilities />
+    <Testimonials />
+    <Location />
+    <CTA />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,169 @@
+---
+import { ArrowUpRight, Banknote, ChevronDown, Clock, LayoutGrid, Star, Zap } from "@lucide/astro";
+import { bookingHref } from "../data/navigation";
+
+const heroImage =
+  "https://images.pexels.com/photos/11053297/pexels-photo-11053297.jpeg?auto=compress&cs=tinysrgb&w=1920";
+
+const quickInfo = [
+  { icon: LayoutGrid, text: "6 Premium Courts" },
+  { icon: Clock, text: "Open Daily" },
+  { icon: Banknote, text: "Starting From Rp50K / Hour" },
+];
+---
+
+<section id="home" class="relative isolate flex min-h-[100svh] flex-col overflow-hidden">
+  <img
+    src={heroImage}
+    alt="Pemain badminton bertanding di lapangan indoor premium Smash Arena"
+    width="1920"
+    height="1080"
+    fetchpriority="high"
+    decoding="async"
+    class="absolute inset-0 -z-30 h-full w-full object-cover object-center"
+  />
+  <div class="absolute inset-0 -z-20 bg-gradient-to-b from-background/80 via-background/65 to-background">
+  </div>
+  <div class="absolute inset-0 -z-20 bg-gradient-to-r from-background via-background/55 to-transparent">
+  </div>
+  <div class="hero-grid absolute inset-0 -z-10 opacity-70" aria-hidden="true"></div>
+
+  <div
+    class="container-x flex flex-1 flex-col justify-center pb-20 pt-28 md:pt-36 lg:pb-24 lg:pt-32"
+  >
+    <div class="grid items-center gap-12 lg:grid-cols-[1.25fr_0.75fr]">
+      <div class="max-w-3xl">
+        <span class="eyebrow reveal is-visible">
+          <Zap class="size-3.5" aria-hidden="true" />
+          Premium Badminton Court
+        </span>
+
+        <h1
+          class="reveal reveal-delay-1 is-visible mt-6 font-display text-[clamp(2.7rem,8.6vw,6rem)] font-extrabold uppercase leading-[0.94] tracking-tight text-white"
+        >
+          MAIN. SMASH.<br />
+          <span class="text-primary">REPEAT.</span>
+        </h1>
+
+        <p class="reveal reveal-delay-2 is-visible mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
+          Lapangan badminton premium untuk permainan yang lebih seru, nyaman, dan profesional.
+          Booking lapangan favoritmu dengan mudah.
+        </p>
+
+        <div class="reveal reveal-delay-3 is-visible mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a
+            href={bookingHref}
+            class="inline-flex h-13 w-full items-center justify-center gap-2 rounded-full bg-primary px-8 text-base font-bold text-primary-foreground shadow-[0_16px_40px_-12px_rgba(163,230,53,0.8)] outline-none transition-all duration-200 hover:bg-[#b5f04a] hover:shadow-[0_20px_48px_-12px_rgba(163,230,53,0.95)] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98] sm:w-auto"
+          >
+            Booking Lapangan
+            <ArrowUpRight class="size-5" aria-hidden="true" />
+          </a>
+          <a
+            href="/#courts"
+            class="glass inline-flex h-13 w-full items-center justify-center gap-2 rounded-full px-8 text-base font-semibold text-white outline-none transition-all duration-200 hover:border-primary/50 hover:bg-white/10 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98] sm:w-auto"
+          >
+            Lihat Lapangan
+          </a>
+        </div>
+
+        <ul
+          class="reveal reveal-delay-4 is-visible mt-10 flex flex-wrap items-center gap-x-5 gap-y-3"
+        >
+          {
+            quickInfo.map(({ icon: Icon, text }) => (
+              <li class="flex items-center gap-2 text-sm font-medium text-white/70">
+                <Icon class="size-4 text-primary" aria-hidden="true" />
+                {text}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="reveal reveal-delay-2 is-visible hidden lg:block">
+        <div
+          class="animate-float-soft glass ml-auto w-full max-w-sm rounded-3xl p-6 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)]"
+        >
+          <div class="flex items-center justify-between gap-3">
+            <span class="flex items-center gap-2 text-sm font-bold text-white">
+              <span class="animate-live-dot inline-block size-2.5 rounded-full bg-primary">
+              </span>
+              Open Today
+            </span>
+            <span class="text-sm font-semibold text-white/60">06:00 – 23:00</span>
+          </div>
+
+          <div class="mt-5 flex items-center gap-3 border-t border-white/10 pt-5">
+            <div class="flex items-center gap-1 text-primary" aria-hidden="true">
+              {
+                Array.from({ length: 5 }).map(() => (
+                  <Star class="size-4 fill-current" />
+                ))
+              }
+            </div>
+            <span class="text-sm font-bold text-white">4.9/5</span>
+            <span class="text-xs text-white/50">(2.400+ review)</span>
+          </div>
+
+          <dl class="mt-5 grid grid-cols-2 gap-3">
+            <div class="rounded-2xl bg-white/5 p-3.5">
+              <dt class="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/50">
+                Total Court
+              </dt>
+              <dd class="mt-1 font-display text-2xl font-extrabold text-white" data-hero-total-courts>
+                6
+              </dd>
+            </div>
+            <div class="rounded-2xl bg-primary/10 p-3.5 ring-1 ring-primary/30">
+              <dt class="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-primary/80">
+                Tersedia
+              </dt>
+              <dd class="mt-1 font-display text-2xl font-extrabold text-primary" data-hero-available-courts>
+                6
+              </dd>
+            </div>
+          </dl>
+
+          <a
+            href="/#courts"
+            class="mt-5 flex items-center justify-between rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm font-semibold text-white/85 outline-none transition-colors hover:border-primary/40 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            Lihat ketersediaan
+            <ArrowUpRight class="size-4" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a
+    href="#stats"
+    class="group absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1.5 text-white/50 outline-none transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring md:flex"
+    aria-label="Gulir ke bawah melihat statistik"
+  >
+    <span class="text-[0.65rem] font-bold uppercase tracking-[0.22em]">Scroll</span>
+    <ChevronDown class="animate-scroll-hint size-5" aria-hidden="true" />
+  </a>
+</section>
+
+<script>
+  import { listCourts } from "../lib/api/courts";
+
+  async function refreshHeroCourtStats() {
+    const totalEl = document.querySelector<HTMLElement>("[data-hero-total-courts]");
+    const availableEl = document.querySelector<HTMLElement>("[data-hero-available-courts]");
+    if (!totalEl || !availableEl) return;
+
+    try {
+      const courts = await listCourts();
+      const total = courts.length;
+      const available = courts.filter((court) => court.available).length;
+      totalEl.textContent = String(total);
+      availableEl.textContent = String(available);
+    } catch {
+      /* biarkan angka default bila API gagal */
+    }
+  }
+
+  refreshHeroCourtStats();
+</script>

@@ -1,0 +1,58 @@
+---
+import { ArrowUpRight, Zap } from "@lucide/astro";
+
+const ctaImage =
+  "https://images.pexels.com/photos/6878125/pexels-photo-6878125.jpeg?auto=compress&cs=tinysrgb&w=1920";
+---
+
+<section id="cta" class="relative isolate overflow-hidden" aria-labelledby="cta-title">
+  <img
+    src={ctaImage}
+    alt=""
+    width="1920"
+    height="1080"
+    loading="lazy"
+    decoding="async"
+    class="absolute inset-0 -z-30 h-full w-full object-cover object-center"
+  />
+  <div class="absolute inset-0 -z-20 bg-background/85"></div>
+  <div
+    class="absolute inset-0 -z-20 bg-gradient-to-t from-background via-background/60 to-background/80">
+  </div>
+  <div class="hero-grid absolute inset-0 -z-10 opacity-60" aria-hidden="true"></div>
+
+  <div class="container-x flex min-h-[32rem] flex-col items-center justify-center py-24 text-center md:min-h-[36rem] md:py-28">
+    <span class="eyebrow reveal">
+      <Zap class="size-3.5" aria-hidden="true" />
+      Slot malam masih tersedia
+    </span>
+
+    <h2
+      id="cta-title"
+      class="reveal reveal-delay-1 mt-6 font-display text-[clamp(2.5rem,7vw,5rem)] font-extrabold uppercase leading-[0.98] tracking-tight text-white"
+    >
+      Ready to <span class="text-primary">Smash?</span>
+    </h2>
+
+    <p class="reveal reveal-delay-2 mt-5 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
+      Book your court and start playing today. Lapangan favorit bisa habis kapan saja — amankan
+      jadwalmu sekarang.
+    </p>
+
+    <div class="reveal reveal-delay-3 mt-9 flex flex-col gap-3 sm:flex-row">
+      <a
+        href="/booking"
+        class="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-primary px-9 text-base font-bold text-primary-foreground shadow-[0_18px_44px_-14px_rgba(163,230,53,0.9)] outline-none transition-all duration-200 hover:bg-[#b5f04a] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]"
+      >
+        Book Your Court
+        <ArrowUpRight class="size-5" aria-hidden="true" />
+      </a>
+      <a
+        href="/#pricing"
+        class="glass inline-flex h-13 items-center justify-center gap-2 rounded-full px-9 text-base font-semibold text-white outline-none transition-all duration-200 hover:border-primary/50 hover:bg-white/10 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]"
+      >
+        Lihat Harga
+      </a>
+    </div>
+  </div>
+</section>

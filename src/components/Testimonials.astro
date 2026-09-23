@@ -1,0 +1,66 @@
+---
+import { Quote, Star } from "@lucide/astro";
+import { testimonials } from "../data/testimonials";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section
+  id="testimonials"
+  class="section-pad relative"
+  aria-labelledby="testimonials-title"
+>
+  <div class="container-x">
+    <SectionHeading
+      id="testimonials-title"
+      eyebrow="Testimoni"
+      title="What Players Say"
+      description="Ribuan pemain memilih Smash Arena setiap bulan — ini kata mereka."
+      align="center"
+    />
+
+    <ul class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      {
+        testimonials.map((testimonial, index) => (
+          <li
+            class:list={[
+              "reveal group relative flex flex-col rounded-3xl border border-white/8 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/35",
+              `reveal-delay-${Math.min(index + 1, 4)}`,
+            ]}
+          >
+            <Quote
+              class="size-8 text-primary/30 transition-colors group-hover:text-primary/60"
+              aria-hidden="true"
+            />
+
+            <blockquote class="mt-4 flex-1 text-sm leading-relaxed text-white/85">
+              “{testimonial.quote}”
+            </blockquote>
+
+            <div class="mt-6 flex items-center gap-1 text-primary" aria-label={`Rating ${testimonial.rating} dari 5`}>
+              {Array.from({ length: 5 }).map(() => (
+                <Star class="size-3.5 fill-current" aria-hidden="true" />
+              ))}
+              <span class="ml-1.5 text-xs font-bold text-white/70">{testimonial.rating.toFixed(1)}</span>
+            </div>
+
+            <footer class="mt-4 flex items-center gap-3 border-t border-white/8 pt-4">
+              <img
+                src={testimonial.avatar}
+                alt={`Foto ${testimonial.name}`}
+                width="48"
+                height="48"
+                loading="lazy"
+                decoding="async"
+                class="size-11 rounded-full object-cover ring-2 ring-primary/40"
+              />
+              <div>
+                <p class="text-sm font-bold text-white">{testimonial.name}</p>
+                <p class="text-xs text-muted-foreground">{testimonial.role}</p>
+              </div>
+            </footer>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

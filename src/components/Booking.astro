@@ -1,0 +1,26 @@
+---
+import { BookingWidget } from "./booking/BookingWidget";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section id="booking" class="section-pad relative overflow-hidden" aria-labelledby="booking-title">
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute left-1/2 top-0 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-primary/[0.07] blur-[120px]"
+  >
+  </div>
+
+  <div class="container-x relative">
+    <SectionHeading
+      id="booking-title"
+      eyebrow="Reservasi Online"
+      title="Book Your Court"
+      description="Pilih tanggal, jam, dan lapangan — ringkasan harga terupdate secara realtime sebelum kamu konfirmasi."
+      align="center"
+    />
+
+    <div class="mt-12">
+      <BookingWidget client:visible />
+    </div>
+  </div>
+</section>

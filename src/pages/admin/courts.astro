@@ -1,0 +1,8 @@
+---
+import AdminLayout from "../../layouts/AdminLayout.astro";
+import { AdminCourtsRoute } from "../../components/admin/AdminRoutes";
+---
+
+<AdminLayout title="Courts — Admin SMASH ARENA">
+  <AdminCourtsRoute client:only="react" />
+</AdminLayout>
