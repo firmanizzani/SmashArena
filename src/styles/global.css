@@ -60,7 +60,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   ::selection {
@@ -98,7 +98,13 @@
   }
 
   .section-pad {
-    padding-block: 4.5rem;
+    padding-block: 3.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-pad {
+      padding-block: 4.5rem;
+    }
   }
 
   @media (min-width: 768px) {
@@ -154,6 +160,15 @@
 
   .skip-link:focus-visible {
     translate: -50% 0;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 

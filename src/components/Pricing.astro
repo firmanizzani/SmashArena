@@ -19,7 +19,7 @@ import SectionHeading from "./SectionHeading.astro";
         pricingPlans.map((plan, index) => (
           <article
             class:list={[
-              "reveal relative flex flex-col rounded-3xl border p-7 transition-all duration-300 md:p-8",
+              "reveal relative flex flex-col rounded-3xl border p-5 transition-all duration-300 sm:p-7 md:p-8",
               plan.highlighted
                 ? "border-primary/50 bg-gradient-to-b from-primary/[0.09] to-card shadow-[0_40px_80px_-40px_rgba(163,230,53,0.55)] lg:-translate-y-3"
                 : "border-white/8 bg-card hover:-translate-y-1 hover:border-white/20",
@@ -63,7 +63,7 @@ import SectionHeading from "./SectionHeading.astro";
               href="/booking"
               data-book-court={plan.courtId}
               class:list={[
-                "mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full text-sm font-bold outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98]",
+                "mt-8 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full text-sm font-bold outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98] sm:w-auto",
                 plan.highlighted
                   ? "bg-primary text-primary-foreground shadow-[0_14px_32px_-12px_rgba(163,230,53,0.9)] hover:bg-[#b5f04a]"
                   : "border border-white/15 bg-white/5 text-white hover:border-primary/50 hover:bg-primary/10 hover:text-primary",

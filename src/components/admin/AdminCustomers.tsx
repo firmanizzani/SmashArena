@@ -94,7 +94,7 @@ export function AdminCustomers() {
               ))}
             </div>
           ) : (
-            <Table>
+            <Table minWidth={860}>
               <TableHeader>
                 <TableRow>
                   <TableHead>Pelanggan</TableHead>
@@ -156,7 +156,7 @@ export function AdminCustomers() {
                   ))
                 ) : (
                   <TableRow>
-                    <TableCell colSpan={6} className="py-14 text-center">
+                    <TableCell colSpan={6} className="py-10 text-center">
                       <p className="font-display text-base font-bold text-white">
                         Pelanggan tidak ditemukan
                       </p>

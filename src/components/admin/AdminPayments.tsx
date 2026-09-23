@@ -163,7 +163,7 @@ export function AdminPayments() {
               ))}
             </div>
           ) : (
-            <Table>
+            <Table minWidth={960}>
               <TableHeader>
                 <TableRow>
                   <TableHead>ID Bayar</TableHead>
@@ -233,7 +233,7 @@ export function AdminPayments() {
                   ))
                 ) : (
                   <TableRow>
-                    <TableCell colSpan={8} className="py-14 text-center">
+                    <TableCell colSpan={8} className="py-10 text-center">
                       <p className="font-display text-base font-bold text-white">
                         Pembayaran tidak ditemukan
                       </p>

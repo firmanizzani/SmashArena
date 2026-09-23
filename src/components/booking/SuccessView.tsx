@@ -126,10 +126,10 @@ export function SuccessView() {
         <button
           type="button"
           onClick={() => void copyCode()}
-          className="relative mx-auto mt-6 flex items-center gap-2.5 rounded-2xl border border-primary/30 bg-primary/10 px-5 py-3 outline-none transition-colors hover:bg-primary/15 focus-visible:ring-2 focus-visible:ring-ring"
+          className="relative mx-auto mt-6 flex max-w-full items-center gap-2.5 rounded-2xl border border-primary/30 bg-primary/10 px-4 py-3 outline-none transition-colors hover:bg-primary/15 focus-visible:ring-2 focus-visible:ring-ring"
           aria-label="Salin kode booking"
         >
-          <span className="font-mono text-lg font-extrabold tracking-[0.14em] text-primary">
+          <span className="min-w-0 break-all font-mono text-sm font-extrabold tracking-[0.08em] text-primary sm:text-lg sm:tracking-[0.14em]">
             {booking.id}
           </span>
           <Copy className="size-4 text-primary/80" aria-hidden="true" />
@@ -139,8 +139,8 @@ export function SuccessView() {
           {copied ? "Kode booking tersalin!" : "Klik kode untuk menyalin"}
         </p>
 
-        <dl className="relative mt-7 space-y-0 divide-y divide-white/5 rounded-2xl border border-white/10 bg-black/30 px-5 py-2 text-left">
-          <div className="flex items-start justify-between gap-4 py-2.5 text-sm">
+        <dl className="relative mt-7 space-y-0 divide-y divide-white/5 rounded-2xl border border-white/10 bg-black/30 px-4 py-2 text-left sm:px-5">
+          <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 py-2.5 text-sm">
             <dt className="text-muted-foreground">Status</dt>
             <dd className="text-right font-semibold text-foreground">
               <UiBadge variant={bookingStatusTone(booking.status)}>
@@ -148,21 +148,21 @@ export function SuccessView() {
               </UiBadge>
             </dd>
           </div>
-          <div className="flex items-start justify-between gap-4 py-2.5 text-sm">
+          <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 py-2.5 text-sm">
             <dt className="text-muted-foreground">Lapangan</dt>
-            <dd className="text-right font-semibold text-foreground">{courtLabel}</dd>
+            <dd className="min-w-0 break-all text-right font-semibold text-foreground">{courtLabel}</dd>
           </div>
-          <div className="flex items-start justify-between gap-4 py-2.5 text-sm">
+          <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 py-2.5 text-sm">
             <dt className="text-muted-foreground">Tanggal</dt>
             <dd className="text-right font-semibold text-foreground">{bookingDateLabel}</dd>
           </div>
-          <div className="flex items-start justify-between gap-4 py-2.5 text-sm">
+          <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 py-2.5 text-sm">
             <dt className="text-muted-foreground">Jam</dt>
             <dd className="text-right font-semibold text-foreground">
               {slotRange(booking.start_time, booking.duration)}
             </dd>
           </div>
-          <div className="flex items-start justify-between gap-4 py-2.5 text-sm">
+          <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 py-2.5 text-sm">
             <dt className="text-muted-foreground">Metode</dt>
             <dd className="text-right font-semibold text-foreground">
               {booking.payment
@@ -172,7 +172,7 @@ export function SuccessView() {
                   : "Bayar di tempat"}
             </dd>
           </div>
-          <div className="flex items-start justify-between gap-4 py-2.5 text-sm">
+          <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1 py-2.5 text-sm">
             <dt className="text-muted-foreground">Total Dibayar</dt>
             <dd className="text-right font-display text-base font-extrabold text-primary">
               {rp(booking.total_price)}

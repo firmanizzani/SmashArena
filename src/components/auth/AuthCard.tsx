@@ -276,7 +276,7 @@ export function AuthCard({ mode }: AuthCardProps) {
 
           <div className="flex items-center gap-3">
             <Separator className="flex-1" />
-            <span className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+            <span className="whitespace-nowrap text-[0.6rem] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-[0.65rem]">
               {isLogin ? "Belum punya akun" : "Sudah punya akun"}
             </span>
             <Separator className="flex-1" />

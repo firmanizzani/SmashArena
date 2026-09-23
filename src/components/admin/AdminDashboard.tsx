@@ -169,7 +169,7 @@ export function AdminDashboard() {
           </div>
         </CardHeader>
         <CardContent>
-          <Table>
+          <Table minWidth={720}>
             <TableHeader>
               <TableRow>
                 <TableHead>Kode</TableHead>

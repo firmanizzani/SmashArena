@@ -222,7 +222,7 @@ export function CourtsIsland() {
 
         <div
           className={[
-            "mt-12 flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-white/15 bg-white/[0.02] p-12 text-center",
+            "mt-12 flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-white/15 bg-white/[0.02] p-6 text-center sm:p-12",
             loading || error || visible.length > 0 ? "hidden" : "flex",
           ].join(" ")}
           role="status"

@@ -97,11 +97,11 @@ function BookingCard({
           </div>
         </div>
 
-        <div className="flex shrink-0 flex-col items-start gap-3 md:items-end">
+        <div className="flex shrink-0 flex-wrap items-start gap-3 md:flex-col md:items-end">
           <p className="font-display text-xl font-extrabold text-primary">
             {rp(booking.total_price)}
           </p>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <Button size="sm" variant="glass" onClick={() => (window.location.href = "/booking")}>
               <PlusCircle aria-hidden="true" />
               Booking Lagi
@@ -178,7 +178,7 @@ export function MyBookings() {
 
   if (loadError && !bookings.length) {
     return (
-      <div className="flex flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-white/15 bg-white/[0.02] p-12 text-center">
+      <div className="flex flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-white/15 bg-white/[0.02] p-6 text-center sm:p-12">
         <Ticket className="size-8 text-muted-foreground" aria-hidden="true" />
         <p className="font-display text-lg font-bold text-white">Gagal memuat booking</p>
         <p className="max-w-sm text-sm text-muted-foreground">{loadError}</p>
@@ -217,7 +217,7 @@ export function MyBookings() {
         ))}
       </div>
     ) : (
-      <div className="flex flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-white/15 bg-white/[0.02] p-12 text-center">
+      <div className="flex flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-white/15 bg-white/[0.02] p-6 text-center sm:p-12">
         <Ticket className="size-8 text-muted-foreground" aria-hidden="true" />
         <p className="font-display text-lg font-bold text-white">{emptyTitle}</p>
         <p className="max-w-sm text-sm text-muted-foreground">{emptyDesc}</p>

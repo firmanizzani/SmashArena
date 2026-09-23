@@ -6,16 +6,16 @@ import { AuthNav } from "./nav/AuthNav";
 ---
 
 <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
-  <div class="container-x flex h-16 items-center justify-between gap-4 md:h-20">
+  <div class="container-x flex h-16 items-center justify-between gap-2 md:h-20 md:gap-4">
     <a
       href="/"
-      class="group flex items-center gap-2.5 rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      class="group flex items-center gap-2 rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring md:gap-2.5"
       aria-label="SMASH ARENA — kembali ke beranda"
     >
       <span class="text-primary transition-transform duration-300 group-hover:-rotate-12">
         <Logo class="size-8 md:size-9" />
       </span>
-      <span class="font-display text-lg font-extrabold uppercase leading-none tracking-[0.08em] md:text-xl">
+      <span class="hidden font-display text-lg font-extrabold uppercase leading-none tracking-[0.08em] sm:inline md:text-xl">
         <span class="text-white">Smash</span><span class="text-primary"> Arena</span>
       </span>
     </a>
@@ -68,7 +68,7 @@ import { AuthNav } from "./nav/AuthNav";
 
   <div
     id="mobile-menu"
-    class="hidden border-t border-white/10 bg-background/95 backdrop-blur-xl lg:hidden"
+    class="hidden max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-background/95 backdrop-blur-xl lg:hidden"
   >
     <nav class="container-x py-5" aria-label="Navigasi mobile">
       <ul class="flex flex-col gap-1">

@@ -4,7 +4,6 @@ import {
   CreditCard,
   LayoutDashboard,
   LayoutGrid,
-  LogIn,
   ShieldCheck,
   Users,
 } from "@lucide/astro";
@@ -59,20 +58,14 @@ const isActive = (href: string) =>
         </div>
 
         <div class="flex items-center gap-2.5">
-          <a
-            href="/login"
-            class="hidden h-9 items-center gap-1.5 rounded-full border border-white/15 px-4 text-xs font-bold text-white/75 outline-none transition-colors hover:border-primary/50 hover:text-primary focus-visible:ring-2 focus-visible:ring-ring sm:inline-flex lg:hidden"
-          >
-            <LogIn class="size-3.5" aria-hidden="true" />
-            Login
-          </a>
           <AuthNav client:load />
         </div>
       </div>
 
       <nav
-        class="flex gap-1 overflow-x-auto border-t border-white/8 px-3 py-2 lg:hidden"
+        class="scrollbar-hide flex gap-1 overflow-x-auto border-t border-white/8 px-3 py-2 lg:hidden"
         aria-label="Navigasi admin mobile"
+        data-admin-pill-nav
       >
         {
           navItems.map((item) => (
@@ -137,3 +130,12 @@ const isActive = (href: string) =>
     </div>
   </div>
 </Layout>
+
+<script>
+  const pillNav = document.querySelector<HTMLElement>("[data-admin-pill-nav]");
+  const activePill = pillNav?.querySelector<HTMLElement>('[aria-current="page"]');
+  if (pillNav && activePill) {
+    const offset = activePill.offsetLeft - 16;
+    pillNav.scrollTo({ left: Math.max(offset, 0), behavior: "instant" as ScrollBehavior });
+  }
+</script>

@@ -175,7 +175,7 @@ export function AdminBookings() {
               ))}
             </div>
           ) : (
-            <Table>
+            <Table minWidth={860}>
               <TableHeader>
                 <TableRow>
                   <TableHead>Kode</TableHead>
@@ -252,7 +252,7 @@ export function AdminBookings() {
                   ))
                 ) : (
                   <TableRow>
-                    <TableCell colSpan={7} className="py-14 text-center">
+                    <TableCell colSpan={7} className="py-10 text-center">
                       <p className="font-display text-base font-bold text-white">
                         Tidak ada booking cocok
                       </p>

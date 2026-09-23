@@ -121,10 +121,10 @@ const footerNav = [
           <li>
             <a
               href={contact.emailHref}
-              class="flex items-center gap-2.5 text-muted-foreground outline-none transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring rounded"
+              class="flex items-start gap-2.5 text-muted-foreground outline-none transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-ring rounded"
             >
-              <Mail class="size-4 shrink-0 text-primary" aria-hidden="true" />
-              {contact.email}
+              <Mail class="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+              <span class="min-w-0 break-all">{contact.email}</span>
             </a>
           </li>
           <li class="flex items-start gap-2.5 text-muted-foreground">
