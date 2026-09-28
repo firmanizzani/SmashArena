@@ -86,8 +86,11 @@ export function AuthNav({ variant = "desktop" }: { variant?: "desktop" | "mobile
   }
 
   const handleLogout = async () => {
-    await logout();
-    navigateTo("/");
+    try {
+      await logout();
+    } finally {
+      navigateTo("/");
+    }
   };
 
   const menu =

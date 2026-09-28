@@ -25,17 +25,18 @@ export async function apiFetch<T>(
   path: string,
   init?: RequestInit & { timeoutMs?: number },
 ): Promise<T> {
-  const { timeoutMs = 15000, headers, ...rest } = init ?? {};
+  const { timeoutMs = 15000, headers, body: payload, ...rest } = init ?? {};
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
     const response = await fetch(`${API_BASE}${path}`, {
       ...rest,
+      body: payload,
       credentials: "include",
       signal: controller.signal,
       headers: {
-        "Content-Type": "application/json",
+        ...(payload ? { "Content-Type": "application/json" } : {}),
         ...(headers ?? {}),
       },
     });

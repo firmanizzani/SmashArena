@@ -87,8 +87,11 @@ export function ProfileView() {
 
   const handleLogout = async () => {
     setLoggingOut(true);
-    await logout();
-    window.location.href = "/";
+    try {
+      await logout();
+    } finally {
+      window.location.href = "/";
+    }
   };
 
   return (

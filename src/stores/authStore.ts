@@ -33,6 +33,9 @@ declare global {
   var __smashAuthStore: AuthStore | undefined;
 }
 
+let sessionEpoch = 0;
+let initInFlight: Promise<void> | null = null;
+
 const creator = (
   set: (partial: Partial<AuthState>) => void,
   get: () => AuthState,
@@ -44,11 +47,23 @@ const creator = (
   error: null,
   init: async () => {
     if (get().initialized) return;
+    if (initInFlight) return initInFlight;
+    const epoch = sessionEpoch;
+    const run = (async () => {
+      try {
+        const user = await authApi.me();
+        if (epoch !== sessionEpoch) return;
+        set({ user, isAuthenticated: true, initialized: true, error: null });
+      } catch {
+        if (epoch !== sessionEpoch) return;
+        set({ user: null, isAuthenticated: false, initialized: true });
+      }
+    })();
+    initInFlight = run;
     try {
-      const user = await authApi.me();
-      set({ user, isAuthenticated: true, initialized: true, error: null });
-    } catch {
-      set({ user: null, isAuthenticated: false, initialized: true });
+      await run;
+    } finally {
+      if (initInFlight === run) initInFlight = null;
     }
   },
   login: async (email, password) => {
@@ -82,9 +97,13 @@ const creator = (
     }
   },
   logout: async () => {
+    sessionEpoch += 1;
+    initInFlight = null;
     set({ isLoading: true });
     try {
       await authApi.logout();
+    } catch {
+      /* sesi lokal tetap dibersihkan meski permintaan gagal */
     } finally {
       set({
         user: null,
